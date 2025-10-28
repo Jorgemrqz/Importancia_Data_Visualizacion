@@ -1,7 +1,7 @@
 # Importancia_Data_Visualizacion
 # Universidad Politécnica Salesiana  
 ## Carrera: Ingeniería en Ciencias de la Computación  
-### Periodo: 2025 - 67 
+### Periodo: 2025-2026 - 67 
 **Estudiante:** Jorge Márquez 
 
 df_anscombe
