@@ -1,0 +1,35 @@
+---
+title: "Regresion_Lineal_Slant_Down"
+author: "Jorge Márquez"
+date: "2025-10-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(datasauRus)
+library(dplyr)
+library(ggplot2)
+```
+# Regresión lineal Slant Down
+```{r regresion_slant_down}
+# Filtramos solo el dataset 'slant_down'
+slant_down <- datasaurus_dozen %>% 
+  filter(dataset == "slant_down")
+
+# Ajustamos una regresión lineal simple (y ~ x)
+modelo <- lm(y ~ x, data = slant_down)
+```
+# Gráfico
+```{r grafico_slant_down, message=FALSE, fig.width=6, fig.height=5}
+ggplot(slant_down, aes(x = x, y = y)) +
+  geom_point(color = "tomato", size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "steelblue", linewidth = 1) +
+  labs(
+    title = "Regresión lineal del dataset 'slant_down'",
+    subtitle = "y ~ x",
+    x = "x",
+    y = "y"
+  ) +
+  theme_minimal(base_size = 13)
+```
