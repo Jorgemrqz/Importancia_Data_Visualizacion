@@ -1,0 +1,60 @@
+---
+title: 'Práctica: The Datasaurus Data Package'
+author: "Jorge Márquez"
+date: "2025-10-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(datasauRus)
+library(dplyr)
+library(ggplot2)
+```
+
+# Resumen de los Datos
+```{r resumen}
+resumen <- datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(
+    mean_x = mean(x),
+    mean_y = mean(y),
+    std_dev_x = sd(x),
+    std_dev_y = sd(y),
+    corr_x_y = cor(x, y)
+  )
+
+resumen
+```
+
+# Grafico de los datasets
+```{r graficos, fig.width=10, fig.height=6}
+ggplot(datasaurus_dozen, aes(x = x, y = y, colour = dataset)) +
+  geom_point(size = 1.5) +
+  theme_void() +
+  theme(legend.position = "none") +
+  facet_wrap(~dataset, ncol = 3)
+```
+
+# Regresión lineal Slant Down
+```{r regresion_slant_down}
+# Filtramos solo el dataset 'slant_down'
+slant_down <- datasaurus_dozen %>% 
+  filter(dataset == "slant_down")
+
+# Ajustamos una regresión lineal simple (y ~ x)
+modelo <- lm(y ~ x, data = slant_down)
+```
+# Gráfico
+```{r grafico_slant_down, message=FALSE, fig.width=6, fig.height=5}
+ggplot(slant_down, aes(x = x, y = y)) +
+  geom_point(color = "tomato", size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "steelblue", linewidth = 1) +
+  labs(
+    title = "Regresión lineal del dataset 'slant_down'",
+    subtitle = "y ~ x",
+    x = "x",
+    y = "y"
+  ) +
+  theme_minimal(base_size = 13)
+```
