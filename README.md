@@ -3,10 +3,6 @@
 ### Periodo: 2025-2026 - 67 
 **Estudiante:** Jorge Márquez 
 
-df_anscombe
-
-https://colab.research.google.com/drive/1m2a-J8gG1QcWPJHrQM9yIkwNK52SOTC6?usp=sharing
-
 ### Introducción Teórica
 
 El **Cuarteto de Anscombe** (Anscombe, 1973) es un conjunto de cuatro grupos de datos que tienen estadísticas casi idénticas — medias, desviaciones estándar, correlaciones y ecuaciones de regresión — pero distribuciones gráficas completamente diferentes.
@@ -25,3 +21,5 @@ Anscombe, F. J. (1973). *Graphs in Statistical Analysis*. The American Statistic
 https://doi.org/10.1080/00031305.1973.10478966
 
 ![alt text](image.png)
+
+https://colab.research.google.com/drive/1m2a-J8gG1QcWPJHrQM9yIkwNK52SOTC6?usp=sharing
